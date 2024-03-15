@@ -6,9 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tailwind": "npx tailwindcss -i ./src/tailwind.css -o ./assets/application.css --watch",
-    "dev": "shopify theme dev --store theme-development-udemy-course"
+    "dev": "shopify theme dev --store theme-development-udemy-course",
+    "themeCheck": "shopify theme check -a"
   },
-  "keywords": [],
+  "keywords": [
+
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
