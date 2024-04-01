@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="h-full">
   <head>
     <title>{{ page_title }}</title>
     <meta charset="utf-8">
@@ -19,10 +19,11 @@
       }
     </style>
   </head>
-  <body>
+  <body class="h-full">
     {% section 'header' %}
     <main role="main">
       {{ content_for_layout }}
     </main>
+    {% section 'footer' %}
   </body>
 </html>

@@ -9,12 +9,15 @@
     "dev": "shopify theme dev --store theme-development-udemy-course",
     "themeCheck": "shopify theme check -a"
   },
-  "keywords": [
-
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.12"
   }
 }

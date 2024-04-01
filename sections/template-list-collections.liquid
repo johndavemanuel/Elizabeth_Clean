@@ -1,47 +1,49 @@
-<div class="flex flex-col items-center my-8">
-    <h1 class="text-3xl font-medium">{{ section.settings.title }}</h1>
-
-    <div class="max-w-6xl mx-auto my-3">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-            {% for collection in collections %}
-                {% if collection.all_products_count > 0 %}
-                    <div class="w-full py-6 px-3">
-                        <div class="border bg-white overflow-hidden">
-                            <a href="{{ collection.url }}">
-                                <div class="h-80 overflow-hidden">
-                                    {% if collection.featured_image != blank %}
-                                        {% assign collection_image = collection.featured_image %}
-                                    {% else %}
-                                        {% assign collection_image = collection.products.first.image %}
-                                    {% endif %}
-
-                                    <img class="w-full h-full object-cover transition duration-1000 ease-in-out transform hover:scale-105" src="{{ collection_image | image_url: width: 240, height: 240 }}" alt="{{ collection.title | escape }}">
-                                </div>
-                            </a>
-
-                            <div class="p-4 bg-gray-100">
-                                <h1 class="text-xl">{{ collection.title }}</h1>
-                            </div>
-                        </div>
-                    </div>
+<div class="py-16 sm:py-24 xl:mx-auto xl:px-8">
+  <div class="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
+    <h2 class="text-2xl font-bold tracking-tight text-gray-900">{{ section.settings.title }}</h2>
+  </div>
+  <div class="mt-4 flow-root">
+    <div class="-my-2">
+      <div class="relative box-content h-80 overflow-x-auto py-2 xl:overflow-visible">
+        <div class="min-w-screen-xl absolute flex space-x-8 px-4 sm:px-6 lg:px-8 xl:relative xl:grid xl:grid-cols-5 xl:gap-x-8 xl:space-x-0 xl:px-0">
+          {% for collection in collections %}
+            {% if collection.all_products_count > 0 %}
+              <a href="{{ collection.url }}" class="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto">
+                {% if collection.featured_image != blank %}
+                  {% assign collection_image = collection.featured_image %}
+                {% else %}
+                  {% assign collection_image = collection.products.first.image %}
                 {% endif %}
-            {% endfor %}
+                <span aria-hidden="true" class="absolute inset-0">
+                  <img
+                    src="{{ collection_image | image_url: width: 240, height: 240 }}"
+                    alt="{{ collection.title | escape }}"
+                    class="h-full w-full object-cover object-center">
+                </span>
+
+                <span aria-hidden="true" class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-gray-800 opacity-50"></span>
+                <span class="relative mt-auto text-center text-xl font-bold text-white">{{ collection.title }}</span>
+              </a>
+
+            {% endif %}
+          {% endfor %}
+
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-
-
 {% schema %}
-{
-  "name": "Template List Collections",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "default": "Collections",
-      "label": "Title"
-    }
-  ]
-}
+  {
+    "name": "Template List Collections",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Collections",
+        "label": "Title"
+      }
+    ]
+  }
 {% endschema %}
