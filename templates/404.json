@@ -1,8 +1,13 @@
 {
-  "name": "Template 404",
   "sections": {
     "template": {
-      "type": "template-404"
+      "type": "template-404",
+      "settings": {
+        "title": "Page not found",
+        "subtext_title": "The page that you're looking for is not found",
+        "button_label": "Back to homepage",
+        "button_url": ""
+      }
     }
   },
   "order": [
