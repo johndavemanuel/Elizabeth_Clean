@@ -1,6 +1,6 @@
-<div class="mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+<div class="mx-auto px-4 py-8 lg:py-16 lg:px-8">
   <h2 class="text-2xl font-bold tracking-tight text-gray-900">{{ section.settings.title }}</h2>
-  <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+  <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 xl:gap-x-8">
     {% for product in section.settings.featured_collection.products limit: section.settings.number_of_products_to_show %}
       {% render 'product-card'
         , product_product: product %}
